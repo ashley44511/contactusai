@@ -1,4 +1,5 @@
 import * as React from "react";
+import Header from '@/components/layout/Header';
 import { NavItem } from "../components/emailGenerator/NavItem";
 import { InputField } from "../components/emailGenerator/InputField";
 import { FooterSection } from "../components/emailGenerator/FooterSection";
@@ -21,22 +22,9 @@ const footerSections = [
 
 export const EmailPage: React.FC = () => {
   return (
+    
     <div className="flex overflow-hidden flex-col bg-white">
-      <nav className="flex justify-center items-start w-full leading-none font-[number:var(--sds-typography-body-font-weight-regular)] text-[color:var(--sds-color-text-default-default)] text-[length:var(--sds-typography-body-size-medium)] max-md:max-w-full">
-        <div className="flex overflow-hidden flex-wrap flex-1 shrink gap-6 items-center p-8 w-full bg-gray-400 border-b basis-0 border-zinc-300 min-w-[240px] max-md:px-5 max-md:max-w-full">
-          <img
-            loading="lazy"
-            src="https://cdn.builder.io/api/v1/image/assets/b48d2253945d4989949efbb42fb5c9e0/87005295dc18543d068b0b04f89b4d5b24855b7ed8c3236439b5dcca211f1a1f?apiKey=b48d2253945d4989949efbb42fb5c9e0&"
-            alt="Company Logo"
-            className="object-contain shrink-0 gap-6 self-stretch my-auto w-10 aspect-[1.14]"
-          />
-          <div className="flex flex-wrap flex-1 shrink gap-2 items-start self-stretch my-auto basis-0 min-w-[240px] max-md:max-w-full">
-            {navItems.map((item, index) => (
-              <NavItem key={index} text={item} />
-            ))}
-          </div>
-        </div>
-      </nav>
+      <Header/>
 
       <img
         loading="lazy"
