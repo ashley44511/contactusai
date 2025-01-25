@@ -12,6 +12,9 @@ const Header = () => {
           alt="Logo"
         />
         <div className="self-stretch flex min-w-60 gap-2 flex-wrap flex-1 shrink basis-[0%] my-auto max-md:max-w-full">
+        <Link to="/" className="self-stretch gap-2 whitespace-nowrap p-2 rounded-lg hover:bg-white/20 transition-colors">
+            Home
+          </Link>
           <Link to="/causes" className="self-stretch gap-2 whitespace-nowrap p-2 rounded-lg hover:bg-white/20 transition-colors">
             Causes
           </Link>
