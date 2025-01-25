@@ -21,7 +21,7 @@ const Features = () => {
               alt="Who is your rep icon"
             />
             <div>
-              <h3 className="text-[color:var(--sds-color-text-default-default)] text-[length:var(--sds-typography-heading-size-base)] font-[number:var(--sds-typography-heading-font-weight)] leading-[1.2] tracking-[-0.48px]">
+              <h3 className="text-[color:var(--sds-color-text-default-default)] text-[length:var(--sds-typography-heading-size-base)] font-bold leading-[1.2] tracking-[-0.48px]">
                 Who Is YOUR Rep?
               </h3>
               <p className="text-[color:var(--sds-color-text-default-secondary)] text-[length:var(--sds-typography-body-size-medium)] font-[number:var(--sds-typography-body-font-weight-regular)] leading-[22px] mt-2">
@@ -38,7 +38,7 @@ const Features = () => {
               alt="Causes icon"
             />
             <div>
-              <h3 className="text-[color:var(--sds-color-text-default-default)] text-[length:var(--sds-typography-heading-size-base)] font-[number:var(--sds-typography-heading-font-weight)] leading-[1.2] tracking-[-0.48px]">
+              <h3 className="text-[color:var(--sds-color-text-default-default)] text-[length:var(--sds-typography-heading-size-base)] font-bold leading-[1.2] tracking-[-0.48px]">
                 Causes YOU Care About
               </h3>
               <p className="text-[color:var(--sds-color-text-default-secondary)] text-[length:var(--sds-typography-body-size-medium)] font-[number:var(--sds-typography-body-font-weight-regular)] leading-[22px] mt-2">
@@ -55,7 +55,7 @@ const Features = () => {
               alt="Voice icon"
             />
             <div>
-              <h3 className="text-[color:var(--sds-color-text-default-default)] text-[length:var(--sds-typography-heading-size-base)] font-[number:var(--sds-typography-heading-font-weight)] leading-[1.2] tracking-[-0.48px]">
+              <h3 className="text-[color:var(--sds-color-text-default-default)] text-[length:var(--sds-typography-heading-size-base)] font-bold leading-[1.2] tracking-[-0.48px]">
                 Let YOUR Voice Shine
               </h3>
               <p className="text-[color:var(--sds-color-text-default-secondary)] text-[length:var(--sds-typography-body-size-medium)] font-[number:var(--sds-typography-body-font-weight-regular)] leading-[22px] mt-2">
