@@ -12,15 +12,15 @@ const Features = () => {
             ContactUS.ai makes contacting your representatives as easy as possible. Harness the power of AI to generate impactful emails and send them directly to your Representative.
           </p>
         </div>
-        <div className="flex w-full items-center gap-16 justify-center flex-wrap mt-12 max-md:max-w-full max-md:mt-10">
-          <div className="self-stretch flex min-w-60 gap-6 flex-wrap w-[301px] my-auto">
+        <div className="grid grid-cols-3 gap-8 mt-12 max-md:grid-cols-1 max-md:mt-10">
+          <div className="flex gap-6">
             <img
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/bea772f6ee902ff191fd3db460c543d3323d52d2aefdb3f77198363230a2986b?placeholderIfAbsent=true"
               className="aspect-[1] object-contain w-8 shrink-0"
               alt="Who is your rep icon"
             />
-            <div className="min-w-40 flex-1 shrink basis-[0%]">
+            <div>
               <h3 className="text-[color:var(--sds-color-text-default-default)] text-[length:var(--sds-typography-heading-size-base)] font-[number:var(--sds-typography-heading-font-weight)] leading-[1.2] tracking-[-0.48px]">
                 Who Is YOUR Rep?
               </h3>
@@ -30,14 +30,14 @@ const Features = () => {
             </div>
           </div>
           
-          <div className="self-stretch flex min-w-60 gap-6 flex-wrap flex-1 shrink basis-[0%] my-auto">
+          <div className="flex gap-6">
             <img
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/ed316db6f2f4a28f21991cfe3ec2bbe3f7f5f335c3486f08704303e3d4bccf26?placeholderIfAbsent=true"
               className="aspect-[1] object-contain w-8 shrink-0"
               alt="Causes icon"
             />
-            <div className="min-w-40 flex-1 shrink basis-[0%]">
+            <div>
               <h3 className="text-[color:var(--sds-color-text-default-default)] text-[length:var(--sds-typography-heading-size-base)] font-[number:var(--sds-typography-heading-font-weight)] leading-[1.2] tracking-[-0.48px]">
                 Causes YOU Care About
               </h3>
@@ -47,14 +47,14 @@ const Features = () => {
             </div>
           </div>
 
-          <div className="self-stretch flex min-w-60 gap-6 flex-wrap flex-1 shrink basis-[0%] my-auto">
+          <div className="flex gap-6">
             <img
               loading="lazy"
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/dc3a2451ef7bf8a6dbec336add357cf6265d0dc917b7b26c8eda5394a9257fbf?placeholderIfAbsent=true"
               className="aspect-[1] object-contain w-8 shrink-0"
               alt="Voice icon"
             />
-            <div className="min-w-40 flex-1 shrink basis-[0%]">
+            <div>
               <h3 className="text-[color:var(--sds-color-text-default-default)] text-[length:var(--sds-typography-heading-size-base)] font-[number:var(--sds-typography-heading-font-weight)] leading-[1.2] tracking-[-0.48px]">
                 Let YOUR Voice Shine
               </h3>
