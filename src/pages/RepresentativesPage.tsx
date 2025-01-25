@@ -6,6 +6,7 @@ import { SocialIcon } from "../components/representatives/SocialIcon";
 import { FooterLinkSection } from "../components/representatives/FooterLinkSection";
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import Iframe from "react-iframe";
 
 const navItems = ["Causes", "Generate Email", "Representatives", "Contact"];
 const socialIcons = [
@@ -91,12 +92,20 @@ export const RepresentativesPage: React.FC = () => {
       </div>
 
       <div className="flex overflow-hidden flex-col justify-center p-16 w-full min-h-[723px] max-md:px-5 max-md:max-w-full">
-        <img
-          loading="lazy"
-          src="https://cdn.builder.io/api/v1/image/assets/b48d2253945d4989949efbb42fb5c9e0/27d0be3b8a114ea1a0087f47b13e2ad0777e0e3d7555f779c415790745d2b81e?apiKey=b48d2253945d4989949efbb42fb5c9e0&"
-          alt="Map"
-          className="object-contain flex-1 w-full aspect-[1.8] rounded-[32px] max-md:max-w-full"
-        />
+        <div className="flex justify-center items-center p-4">
+          {/* Sources for Iframe:
+        https://www.npmjs.com/package/react-iframe
+        // https://www.govtrack.us/congress/members/map */}
+          <Iframe
+            url="https://www.govtrack.us/congress/members/embed/mapframe?&bounds=-123.54,43.603,-77.816,28.009"
+            width="100%"
+            height="575r"
+            id=""
+            className=""
+            display="block"
+            position="relative"
+          />
+        </div>
       </div>
 
       <div className="flex flex-col justify-center items-center px-16 py-10 w-full tracking-tight leading-tight text-center whitespace-nowrap font-[number:var(--sds-typography-heading-font-weight)] text-[color:var(--sds-color-text-brand-on-brand)] text-[length:var(--sds-typography-heading-size-base)] max-md:px-5 max-md:max-w-full">
