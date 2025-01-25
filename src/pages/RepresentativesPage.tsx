@@ -1,5 +1,6 @@
 import * as React from "react";
 import Header from '@/components/layout/Header';
+import Footer from "@/components/layout/Footer";
 import { NavItem } from "../components/representatives/NavItem";
 import { SocialIcon } from "../components/representatives/SocialIcon";
 import { FooterLinkSection } from "../components/representatives/FooterLinkSection";
@@ -112,24 +113,7 @@ export const RepresentativesPage: React.FC = () => {
         </button>
       </div>
 
-      <footer className="flex flex-col w-full max-md:max-w-full">
-        <div className="flex items-start w-full min-h-[212px] max-md:max-w-full">
-          <div className="flex flex-col flex-1 shrink w-full basis-0 min-w-[240px] max-md:max-w-full">
-            <div className="flex overflow-hidden flex-wrap flex-1 gap-16 content-start items-start px-8 pt-8 pb-40 border-solid bg-[linear-gradient(0deg,rgba(0,0,0,0.20_0%,rgba(0,0,0,0.20)_100%),#AAC8B9)] border-t-[color:var(--sds-color-border-default-default)] border-t-[length:var(--sds-size-stroke-border)] pb-[var(--sds-size-space-4000)] pl-[var(--sds-size-space-800)] pr-[var(--sds-size-space-800)] pt-[var(--sds-size-space-800)] size-full max-md:px-5 max-md:pb-24 max-md:max-w-full">
-              <div className="flex flex-col items-start min-w-[240px] w-[262px]">
-                <div className="flex gap-4 items-center">
-                  {socialIcons.map((icon, index) => (
-                    <SocialIcon key={index} {...icon} />
-                  ))}
-                </div>
-              </div>
-              {footerSections.map((section, index) => (
-                <FooterLinkSection key={index} {...section} />
-              ))}
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer/>
     </div>
   );
 };
