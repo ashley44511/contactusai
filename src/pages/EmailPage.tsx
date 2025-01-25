@@ -3,6 +3,8 @@ import Header from '@/components/layout/Header';
 import { NavItem } from "../components/emailGenerator/NavItem";
 import { InputField } from "../components/emailGenerator/InputField";
 import { FooterSection } from "../components/emailGenerator/FooterSection";
+import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const navItems = ["Causes", "Generate Email", "Representatives", "Contact"];
 const footerSections = [
@@ -77,7 +79,20 @@ export const EmailPage: React.FC = () => {
             />
           </div>
         </form>
+      <button className="flex overflow-hidden justify-center items-center p-3 border-gray-400 bg-[color:var(--sds-color-background-brand-default)] gap-[var(--sds-size-space-200)] pb-[var(--sds-size-space-300)] pl-[var(--sds-size-space-300)] pr-[var(--sds-size-space-300)] pt-[var(--sds-size-space-300)] rounded-[var(--sds-size-radius-200)]">
+               <Button asChild className="self-stretch bg-black text-white rounded-full hover:bg-gray-800">
+                   <Link to='/representatives'>Continue</Link>
+               </Button>
+                 <img
+                   loading="lazy"
+                   src="https://cdn.builder.io/api/v1/image/assets/b48d2253945d4989949efbb42fb5c9e0/4606baba77ecde594d9c31e92e8d89281c163fda004f0c5ac9e5860fe6594733?apiKey=b48d2253945d4989949efbb42fb5c9e0&"
+                   alt=""
+                   className="object-contain shrink-0 self-stretch my-auto w-4 aspect-square"
+                 />
+      </button>
       </main>
+
+      
 
       <footer className="flex flex-col w-full max-md:max-w-full">
         <div className="flex items-start w-full min-h-[212px] max-md:max-w-full">

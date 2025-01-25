@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
@@ -14,10 +15,8 @@ const Hero = () => {
           </p>
         </div>
         <div className="flex items-center gap-4 justify-center mt-8">
-          <Button 
-            className="self-stretch bg-black text-white rounded-full hover:bg-gray-800"
-          >
-            Get Started
+          <Button asChild className="self-stretch bg-black text-white rounded-full hover:bg-gray-800">
+            <Link to='/causes'>Get Started</Link>
           </Button>
         </div>
       </div>

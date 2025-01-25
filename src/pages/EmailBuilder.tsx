@@ -2,6 +2,10 @@ import * as React from "react";
 import { CauseCard } from "../components/emailBuilder/CauseCard";
 import { NavLink } from "../components/emailBuilder/NavLink";
 import { FooterSection } from "../components/emailBuilder/FooterSection";
+import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
+import Header from '@/components/layout/Header';
+
 
 const navLinks = [
   { label: "Causes" },
@@ -39,21 +43,7 @@ const footerSections = [
 export function EmailBuilder() {
   return (
     <div className="flex overflow-hidden flex-col bg-white">
-      <div className="flex justify-center items-start w-full leading-none font-[number:var(--sds-typography-body-font-weight-regular)] text-[color:var(--sds-color-text-default-default)] text-[length:var(--sds-typography-body-size-medium)] max-md:max-w-full">
-        <div className="flex overflow-hidden flex-wrap flex-1 shrink gap-6 items-center p-8 w-full bg-gray-400 border-b basis-0 border-zinc-300 min-w-[240px] max-md:px-5 max-md:max-w-full">
-          <img
-            loading="lazy"
-            src="https://cdn.builder.io/api/v1/image/assets/b48d2253945d4989949efbb42fb5c9e0/87005295dc18543d068b0b04f89b4d5b24855b7ed8c3236439b5dcca211f1a1f?apiKey=b48d2253945d4989949efbb42fb5c9e0&"
-            alt=""
-            className="object-contain shrink-0 gap-6 self-stretch my-auto w-10 aspect-[1.14]"
-          />
-          <div className="flex flex-wrap flex-1 shrink gap-2 items-start self-stretch my-auto basis-0 min-w-[240px] max-md:max-w-full">
-            {navLinks.map((link, index) => (
-              <NavLink key={index} {...link} />
-            ))}
-          </div>
-        </div>
-      </div>
+      <Header />
       <img
         loading="lazy"
         src="https://cdn.builder.io/api/v1/image/assets/b48d2253945d4989949efbb42fb5c9e0/dabc10873c81ca8d2b9660d000ca028c998306c3ae911a63bd3fe593fac35535?apiKey=b48d2253945d4989949efbb42fb5c9e0&"
@@ -92,11 +82,13 @@ export function EmailBuilder() {
         </div>
       </div>
       <div className="flex flex-col justify-center items-center py-10 w-full tracking-tight leading-tight text-center font-[number:var(--sds-typography-heading-font-weight)] px-[514px] text-[color:var(--sds-color-text-brand-on-brand)] text-[length:var(--sds-typography-heading-size-base)] max-md:px-5 max-md:max-w-full">
-        <button className="flex overflow-hidden justify-center items-center p-3 border-gray-400 bg-[color:var(--sds-color-background-brand-default)] gap-[var(--sds-size-space-200)] pb-[var(--sds-size-space-300)] pl-[var(--sds-size-space-300)] pr-[var(--sds-size-space-300)] pt-[var(--sds-size-space-300)] rounded-[var(--sds-size-radius-200)]">
-          <span className="self-stretch my-auto">Send Email</span>
+      <button className="flex overflow-hidden justify-center items-center p-3 border-gray-400 bg-[color:var(--sds-color-background-brand-default)] gap-[var(--sds-size-space-200)] pb-[var(--sds-size-space-300)] pl-[var(--sds-size-space-300)] pr-[var(--sds-size-space-300)] pt-[var(--sds-size-space-300)] rounded-[var(--sds-size-radius-200)]">
+        <Button asChild className="self-stretch bg-black text-white rounded-full hover:bg-gray-800">
+            <Link to='/submit'>Submit</Link>
+        </Button>
           <img
             loading="lazy"
-            src="https://cdn.builder.io/api/v1/image/assets/b48d2253945d4989949efbb42fb5c9e0/865fa3828bbc45fb065d0123b8a75aee79cf3fceb1bb671f9b544a710aeebb37?apiKey=b48d2253945d4989949efbb42fb5c9e0&"
+            src="https://cdn.builder.io/api/v1/image/assets/b48d2253945d4989949efbb42fb5c9e0/4606baba77ecde594d9c31e92e8d89281c163fda004f0c5ac9e5860fe6594733?apiKey=b48d2253945d4989949efbb42fb5c9e0&"
             alt=""
             className="object-contain shrink-0 self-stretch my-auto w-4 aspect-square"
           />
