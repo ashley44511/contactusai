@@ -15,7 +15,7 @@ const Hero = () => {
         </div>
         <div className="flex items-center gap-4 justify-center mt-8">
           <Button 
-            className="self-stretch rounded-[var(--sds-size-radius-200)] bg-[color:var(--sds-color-background-brand-default)] text-[color:var(--sds-color-text-brand-on-brand)] font-[number:var(--sds-typography-heading-font-weight)] tracking-[-0.48px]"
+            className="self-stretch bg-black text-white rounded-full hover:bg-gray-800"
           >
             Get Started
           </Button>
