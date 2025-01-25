@@ -3,6 +3,8 @@ import Header from '@/components/layout/Header';
 import { NavItem } from "../components/causes/NavItem";
 import { CauseItem } from "../components/causes/CauseItem";
 import { FooterSection } from "../components/causes/FooterSection";
+import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const navItems = ["Causes", "Generate Email", "Representatives", "Contact"];
 
@@ -84,7 +86,9 @@ export const CausesPage: React.FC = () => {
 
       <div className="flex flex-col justify-center items-center py-10 w-full tracking-tight leading-tight text-center whitespace-nowrap font-[number:var(--sds-typography-heading-font-weight)] min-w-[420px] pl-[525px] pr-[524px] text-[color:var(--sds-color-text-brand-on-brand)] text-[length:var(--sds-typography-heading-size-base)] max-md:px-5 max-md:max-w-full">
         <button className="flex overflow-hidden justify-center items-center p-3 border-gray-400 bg-[color:var(--sds-color-background-brand-default)] gap-[var(--sds-size-space-200)] pb-[var(--sds-size-space-300)] pl-[var(--sds-size-space-300)] pr-[var(--sds-size-space-300)] pt-[var(--sds-size-space-300)] rounded-[var(--sds-size-radius-200)]">
-          <span className="self-stretch my-auto">Continue</span>
+        <Button asChild className="self-stretch bg-black text-white rounded-full hover:bg-gray-800">
+            <Link to='/email'>Continue</Link>
+        </Button>
           <img
             loading="lazy"
             src="https://cdn.builder.io/api/v1/image/assets/b48d2253945d4989949efbb42fb5c9e0/4606baba77ecde594d9c31e92e8d89281c163fda004f0c5ac9e5860fe6594733?apiKey=b48d2253945d4989949efbb42fb5c9e0&"
