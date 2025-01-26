@@ -11,9 +11,9 @@ import { useState } from "react";
 import {useDataStorageContext} from '@/context/DataStorageContext';
 
 const RepresentativesPage = () => {
-  const {address, setAddress, repName, setRepName, repWebsite, setRepWebsite} = useDataStorageContext();
+  const {repName, setRepName, repWebsite, setRepWebsite} = useDataStorageContext();
   const [inputAddress, setInputAddress] = useState("");
-  const [representative, setRepresentatives] = useState([]);
+  const [representative, setRepresentative] = useState([]);
   const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
@@ -27,10 +27,10 @@ const RepresentativesPage = () => {
   };
 
   const handleSaveData = () => {
-    setAddress(inputAddress);
-    setRepName(representative);
-    setRepWebsite(representative.urls[0]);
-    console.log("Address: " + address + " Representative: " + repName + " Website: " + repWebsite);
+    const rep = representative[0];
+    setRepName(rep.name);
+    setRepWebsite(rep.urls[0]);
+    console.log(" Representative: " + repName + " Website: " + repWebsite);
   }
 
 
@@ -44,7 +44,8 @@ const RepresentativesPage = () => {
         throw new Error("Failed to fetch representatives.");
       }
       const data = await response.json();
-      setRepresentatives(data.officials || []);
+      console.log(data);
+      setRepresentative(data.officials || []);
     } catch (err) {
       setError(err.message);
     }
