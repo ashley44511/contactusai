@@ -7,7 +7,7 @@ const Features = () => {
         <div className="w-full max-md:max-w-full">
         <h1 className="text-4xl">Contact your US Congress Representative now to make sure your voice is heard!</h1>
           <p className="text-[color:var(--sds-color-text-default-secondary)] text-[length:var(--sds-typography-subheading-size-medium)] font-[number:var(--sds-typography-subheading-font-weight)] leading-6 mt-2 max-md:max-w-full">
-            ContactUS.ai makes contacting your representatives as easy as possible. Harness the power of AI to generate impactful emails and send them directly to your Representative.
+            ContactUS.ai makes contacting your representatives as easy as possible. Harness the power of AI to generate impactful emails about the topics you're passionate about in just a few seconds. Send your message directly to your congressional district representative and make your voice heard! 
           </p>
         </div>
         <div className="grid grid-cols-3 gap-8 mt-12 max-md:grid-cols-1 max-md:mt-10">
@@ -23,7 +23,7 @@ const Features = () => {
                 Who Is YOUR Rep?
               </h3>
               <p className="text-[color:var(--sds-color-text-default-secondary)] text-[length:var(--sds-typography-body-size-medium)] font-[number:var(--sds-typography-body-font-weight-regular)] leading-[22px] mt-2">
-                Make your vote count by talking directly to your congressional district representative
+                Make your vote count by directly messaging your congressional district representative. You can find your representative by entering your address after generating your email.
               </p>
             </div>
           </div>
@@ -40,7 +40,7 @@ const Features = () => {
                 Causes YOU Care About
               </h3>
               <p className="text-[color:var(--sds-color-text-default-secondary)] text-[length:var(--sds-typography-body-size-medium)] font-[number:var(--sds-typography-body-font-weight-regular)] leading-[22px] mt-2">
-                Need ideas about what to write about? Select causes that are important to you before writing to your congress representative.
+                Need ideas about what to write about? Select the causes that are important to you before writing to your congress representative to generate an interest-tailored email.
               </p>
             </div>
           </div>
@@ -57,7 +57,7 @@ const Features = () => {
                 Let YOUR Voice Shine
               </h3>
               <p className="text-[color:var(--sds-color-text-default-secondary)] text-[length:var(--sds-typography-body-size-medium)] font-[number:var(--sds-typography-body-font-weight-regular)] leading-[22px] mt-2">
-                Not a writer? No problem! AI can generate impactful emails about issues you care about with just a few clicks.
+                Not a writer? Don't enjoy writing monotonous emails? No problem! AI can generate impactful emails about issues you care about with just a few clicks. 
               </p>
             </div>
           </div>
