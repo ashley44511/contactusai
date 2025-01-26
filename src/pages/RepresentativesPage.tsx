@@ -8,21 +8,31 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import Iframe from "react-iframe";
 import { useState } from "react";
+import {useDataStorageContext} from '@/context/DataStorageContext';
 
 const RepresentativesPage = () => {
-  const [address, setAddress] = useState("");
-  const [representatives, setRepresentatives] = useState([]);
+  const {address, setAddress, repName, setRepName, repWebsite, setRepWebsite} = useDataStorageContext();
+  const [inputAddress, setInputAddress] = useState("");
+  const [representative, setRepresentatives] = useState(null);
   const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!address.trim()) {
+    if (!inputAddress.trim()) {
       setError("Please enter a valid address.");
       return;
     }
     setError("");
-    await fetchRepresentatives(address);
+    await fetchRepresentatives(inputAddress);
   };
+
+  const handleSaveData = () => {
+    setAddress(inputAddress);
+    setRepName(representative);
+    setRepWebsite(representative.urls[0]);
+    console.log("Address: " + address + " Representative: " + repName + " Website: " + repWebsite);
+  }
+
 
   const fetchRepresentatives = async (address) => {
     try {
@@ -75,32 +85,33 @@ const RepresentativesPage = () => {
           </form>
 
         <div className="mt-6">
-          {representatives.length > 0 ? (
-            <div>
+          {representative.length > 0 ? (
+            <div className="flex flex-col gap-4">
               <h2 className="text-xl font-bold mb-4">Your Representative:</h2>
               <ul className="list-disc pl-6">
-                {representatives.map((rep, index) => (
+                {representative.map((rep, index) => (
                   <li key={index} className="mb-2">
                     <strong>{rep.name}</strong> - {rep.party || "Unknown Party"}
                   </li>
                 ))}
               </ul>
+              <button onClick={handleSaveData} className="items-center border-gray-400 bg-[color:var(--sds-color-background-brand-default)] gap-[var(--sds-size-space-200)] pb-[var(--sds-size-space-300)] pl-[var(--sds-size-space-300)] pr-[var(--sds-size-space-300)] pt-[var(--sds-size-space-300)] rounded-[var(--sds-size-radius-200)]">
+                <Button asChild className="text-white mt-6 overflow-hidden flex-1 shrink gap-2 self-stretch p-3 w-full rounded-lg border border-solid  bg-black  rounded-full hover:bg-gray-800 border-zinc-800 min-w-[240px] ">
+                    <Link to='/submit'>Continue</Link>
+                </Button>
+                <img
+                  loading="lazy"
+                  src="https://cdn.builder.io/api/v1/image/assets/b48d2253945d4989949efbb42fb5c9e0/4606baba77ecde594d9c31e92e8d89281c163fda004f0c5ac9e5860fe6594733?apiKey=b48d2253945d4989949efbb42fb5c9e0&"
+                  alt=""
+                  className="object-contain shrink-0 self-stretch my-auto w-4 aspect-square"
+                />
+            </button>
             </div>
           ) : (
             <p>No representative found yet.</p>
           )}
         </div>
-        <button className="border-gray-400 bg-[color:var(--sds-color-background-brand-default)] gap-[var(--sds-size-space-200)] pb-[var(--sds-size-space-300)] pl-[var(--sds-size-space-300)] pr-[var(--sds-size-space-300)] pt-[var(--sds-size-space-300)] rounded-[var(--sds-size-radius-200)]">
-        <Button asChild className="text-white mt-6 overflow-hidden flex-1 shrink gap-2 self-stretch p-3 w-full rounded-lg border border-solid  bg-black  rounded-full hover:bg-gray-800 border-zinc-800 min-w-[240px] ">
-            <Link to='/submit'>Continue</Link>
-        </Button>
-          <img
-            loading="lazy"
-            src="https://cdn.builder.io/api/v1/image/assets/b48d2253945d4989949efbb42fb5c9e0/4606baba77ecde594d9c31e92e8d89281c163fda004f0c5ac9e5860fe6594733?apiKey=b48d2253945d4989949efbb42fb5c9e0&"
-            alt=""
-            className="object-contain shrink-0 self-stretch my-auto w-4 aspect-square"
-          />
-      </button>
+        
       </div>
       <div className="flex overflow-hidden flex-col justify-center p-16 w-1/2 min-h-[723px] max-md:px-5 max-md:max-w-full">
         <div className="flex justify-center items-center p-4">
