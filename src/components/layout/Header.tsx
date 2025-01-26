@@ -24,9 +24,7 @@ const Header = () => {
           <Link to="/representatives" className="self-stretch gap-2 whitespace-nowrap p-2 rounded-lg hover:bg-white/20 transition-colors">
             Representatives
           </Link>
-          <Link to="/contact" className="self-stretch gap-2 whitespace-nowrap p-2 rounded-lg hover:bg-white/20 transition-colors">
-            Contact
-          </Link>
+          
         </div>
       </nav>
     </header>

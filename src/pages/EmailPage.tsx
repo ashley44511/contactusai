@@ -59,54 +59,73 @@ export const EmailPage: React.FC = () => {
         className="object-contain self-center max-w-full aspect-[10.2] w-[1058px]"
       />
 
-      <main className="flex flex-col justify-center items-center self-center p-16 w-full">
-        <h1 className="text-4xl">2. Generate your personalized email with AI</h1>
-        <form onSubmit={handleGenerate} className="flex flex-wrap gap-10 justify-center items-center">
-          <div className="flex flex-col p-6 w-80">
-            <InputField
-              label="First Name"
-              placeholder="First Name"
-              value={firstName}
-              onChange={handleInputChange(setFirstName)}
-            />
-            <div className="mt-6">
-              <InputField
-                label="Last Name"
-                placeholder="Last Name"
-                value={lastName}
-                onChange={handleInputChange(setLastName)}
-              />
-            </div>
-            <div className="mt-6">
-              <InputField
-                label="Email"
-                type="email"
-                placeholder="Email"
-                value={email}
-                onChange={handleInputChange(setEmail)}
-              />
-            </div>
-            <button
-              type="submit"
-              className="mt-6 bg-zinc-800 text-white rounded-lg p-3"
+      <div className="flex flex-col justify-center items-center p-16 w-full">
+        <h1 className="text-4xl text-center mb-10">
+          2. Generate your personalized email with AI
+        </h1>
+        {/* main column after title */}
+        <div className="flex flex-col md:flex-row items-center w-full">
+          <form
+            onSubmit={handleGenerate}
+            className="flex flex-wrap justify-center w-full"
             >
-              Generate
-            </button>
-          </div>
-          <div className="w-full">
-            <label htmlFor="inputResponse">Response</label>
-            <textarea
-              id="inputResponse"
-              className="w-full p-4 mt-2 border rounded-lg"
-              readOnly
-              value={inputResponse}
-            />
-          </div>
-        </form>
-        <Button onClick={handleSaveDataEmail} asChild>
-          <Link to="/representatives">Continue</Link>
-        </Button>
-      </main>
+            {/* Left Column */}
+            <div className="flex flex-col justify-center items-center w-1/2 bg-white">
+              <div className="flex flex-col p-6 w-80">
+                <InputField
+                  label="First Name"
+                  placeholder="First Name"
+                  value={firstName}
+                  onChange={handleInputChange(setFirstName)}
+                />
+                <div className="mt-6">
+                  <InputField
+                    label="Last Name"
+                    placeholder="Last Name"
+                    value={lastName}
+                    onChange={handleInputChange(setLastName)}
+                  />
+                </div>
+                <div className="mt-6">
+                  <InputField
+                    label="Email"
+                    type="email"
+                    placeholder="Email"
+                    value={email}
+                    onChange={handleInputChange(setEmail)}
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="mt-6 bg-zinc-800 text-white rounded-lg p-3"
+                >
+                  Generate
+                </button>
+              </div>
+            </div>
+
+            {/* Right Column */}
+            <div className="flex flex-col justify-center items-center w-1/2 bg-white">
+              <div className="w-full">
+                <label htmlFor="inputResponse" className="block font-bold">
+                  Response
+                </label>
+                <textarea
+                  id="inputResponse"
+                  className="w-full min-h-[300px] p-4 mt-2 border rounded-lg resize-none overflow-auto"
+                  readOnly
+                  value={inputResponse}
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+        <div className="mt-10 flex justify-center">
+          <Button onClick={handleSaveDataEmail} asChild>
+            <Link to="/representatives">Continue</Link>
+          </Button>
+        </div>
+      </div>
       <Footer />
     </div>
   );

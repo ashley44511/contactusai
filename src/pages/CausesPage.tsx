@@ -72,16 +72,19 @@ export const CausesPage: React.FC = () => {
       />
 
       <div className="flex overflow-hidden flex-wrap gap-4 justify-center items-center py-16 pr-16 w-full bg-white text-[color:var(--sds-color-text-default-default)] max-md:pr-5 max-md:max-w-full p-10">
-      <h1 className="text-4xl">1. Select Causes To Support</h1>
+        <h1 className="text-4xl">1. Select Causes To Support</h1>
+       </div>
 
+       <div className="flex overflow-hidden flex-wrap gap-4 justify-center items-center py-16 pr-16 w-full bg-white text-[color:var(--sds-color-text-default-default)] max-md:pr-5 max-md:max-w-full p-10">
         <div className="flex flex-col grow shrink self-stretch my-auto leading-6 rounded-md font-[number:var(--sds-typography-body-font-weight-regular)] min-w-[240px] text-[length:var(--sds-typography-body-size-medium)] w-[804px] max-md:max-w-full">
-          <div className="grid grid-cols-4 gap-4">
+          <div className="grid grid-cols-4 gap-4 ">
             {causes.map((cause, index) => (
               <CauseItem
                 key={index}
                 label={cause}
                 isChecked={selectedCauses.includes(cause)}
                 onToggle={() => toggleCause(cause)}
+                
               />
             ))}
           </div>
@@ -90,6 +93,7 @@ export const CausesPage: React.FC = () => {
           </div>
         </div>
       </div>
+      
 
       <div className="flex flex-col justify-center items-center py-10 w-full tracking-tight leading-tight text-center whitespace-nowrap font-[number:var(--sds-typography-heading-font-weight)] min-w-[420px] pl-[525px] pr-[524px] text-[color:var(--sds-color-text-brand-on-brand)] text-[length:var(--sds-typography-heading-size-base)] max-md:px-5 max-md:max-w-full">
         <button onClick={handleSaveCauses} className="flex overflow-hidden justify-center items-center p-3 border-gray-400 bg-[color:var(--sds-color-background-brand-default)] gap-[var(--sds-size-space-200)] pb-[var(--sds-size-space-300)] pl-[var(--sds-size-space-300)] pr-[var(--sds-size-space-300)] pt-[var(--sds-size-space-300)] rounded-[var(--sds-size-radius-200)]">
