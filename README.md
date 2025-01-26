@@ -40,12 +40,15 @@ This project is built with .
 - Tailwind CSS
 
 Sources:
-https://www.govtrack.us/congress/members/map
-Photo by Photo By: Kaboompics.com: https://www.pexels.com/photo/image-of-old-building-on-american-banknote-4386157/
-"http://www.freepik.com" Designed by Dooder / Freepik
-ContactUSAI Logo by Ashley Maurer; inspired by dooder on Freepik
-https://www.figma.com/design/pVd5XTzS1NL4JlodzrbQPf/SwampHacksX?node-id=0-1&t=IljMaQWTve9XhOla-1
-https://chatgpt.com/
-https://lovable.dev/
-https://www.builder.io/
+- https://www.govtrack.us/congress/members/map
+- Photo by Photo By: Kaboompics.com: https://www.pexels.com/photo/image-of-old-building-on-american-banknote-4386157/
+- "http://www.freepik.com" Designed by Dooder / Freepik
+- ContactUSAI Logo by Ashley Maurer; inspired by dooder on Freepik
+- https://www.figma.com/design/pVd5XTzS1NL4JlodzrbQPf/SwampHacksX?node-id=0-1&t=IljMaQWTve9XhOla-1
+- https://chatgpt.com/
+- https://lovable.dev/
+- https://www.builder.io/
+- https://ai.google.dev/gemini-api/docs
+- https://tailwindcss.com/
+- https://www.geeksforgeeks.org/how-to-align-form-elements-to-center-using-tailwind-css/
 
