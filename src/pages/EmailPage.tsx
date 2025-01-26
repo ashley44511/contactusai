@@ -9,24 +9,37 @@ export const EmailPage: React.FC = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [response, setResponse] = useState("Dear Representative,");
 
-  const handleInputChange = (setter: React.Dispatch<React.SetStateAction<string>>) => 
+  const handleInputChange =
+    (setter: React.Dispatch<React.SetStateAction<string>>) =>
     (e: React.ChangeEvent<HTMLInputElement>) => {
       setter(e.target.value);
     };
 
-  const handleGenerate = (e: React.FormEvent) => {
+  const handleGenerate = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("First Name:", firstName);
-    console.log("Last Name:", lastName);
-    console.log("Email:", email);
-    // Add logic for handling the generated email here
+    const prompt = `Generate an email to a representative introducing myself. My first name is ${firstName}, my last name is ${lastName}, and my email address is ${email}.`;
+
+    try {
+      const res = await fetch("http://localhost:3000/api/generate-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ prompt }),
+      });
+      const data = await res.json();
+      setResponse(data.response || "Error generating email.");
+    } catch (error) {
+      console.error("Error generating email:", error);
+      setResponse("Failed to generate email.");
+    }
   };
 
   return (
     <div className="flex overflow-hidden flex-col bg-white">
       <Header />
-
       <img
         loading="lazy"
         src="https://cdn.builder.io/api/v1/image/assets/b48d2253945d4989949efbb42fb5c9e0/3e4410870497195ed4de97ee9a8fe4a70ee1d0a5450ee1f89017dbdce28ebd8d?apiKey=b48d2253945d4989949efbb42fb5c9e0&"
@@ -34,16 +47,10 @@ export const EmailPage: React.FC = () => {
         className="object-contain self-center max-w-full aspect-[10.2] w-[1058px]"
       />
 
-      <main className="flex flex-col justify-center items-center self-center p-16 w-full tracking-tighter leading-tight text-center bg-white font-[number:var(--sds-typography-title-page-font-weight)] text-[color:var(--sds-color-text-default-default)] text-[length:var(--sds-typography-title-page-size-base)] max-md:px-5 max-md:max-w-full">
-        <h1 className="max-w-full w-[998px] max-md:max-w-full max-md:text-4xl">
-          Generate your personalized email with AI
-        </h1>
-
-        <form
-          onSubmit={handleGenerate}
-          className="flex overflow-hidden flex-wrap gap-10 justify-center items-start px-2.5 py-5 w-full bg-white font-[number:var(--sds-typography-body-font-weight-regular)] text-[length:var(--sds-typography-body-size-medium)] max-md:max-w-full"
-        >
-          <div className="flex flex-col p-6 w-80 bg-white rounded-lg border border-solid border-zinc-300 min-w-[320px] max-md:px-5">
+      <main className="flex flex-col justify-center items-center self-center p-16 w-full">
+        <h1 className="text-4xl">Generate your personalized email with AI</h1>
+        <form onSubmit={handleGenerate} className="flex flex-wrap gap-10">
+          <div className="flex flex-col p-6 w-80">
             <InputField
               label="First Name"
               placeholder="First Name"
@@ -69,36 +76,24 @@ export const EmailPage: React.FC = () => {
             </div>
             <button
               type="submit"
-              className="mt-6 overflow-hidden flex-1 shrink gap-2 self-stretch p-3 w-full rounded-lg border border-solid bg-zinc-800 border-zinc-800 min-w-[240px] text-white"
+              className="mt-6 bg-zinc-800 text-white rounded-lg p-3"
             >
               Generate
             </button>
           </div>
-
-          <div className="flex flex-col leading-snug whitespace-nowrap min-h-[504px] min-w-[240px] text-[color:var(--sds-color-text-default-default)] w-[655px] max-md:max-w-full">
-            <label htmlFor="response" className="max-md:max-w-full">
-              Response
-            </label>
+          <div className="w-full">
+            <label htmlFor="response">Response</label>
             <textarea
               id="response"
-              className="flex overflow-hidden relative flex-1 gap-1 items-start px-4 py-3 mt-2 bg-white rounded-lg border border-solid border-zinc-300 min-h-[80px] min-w-[240px] size-full max-md:max-w-full"
+              className="w-full p-4 mt-2 border rounded-lg"
               readOnly
-              value={`Dear Representative,`}
+              value={response}
             />
           </div>
         </form>
-
-        <button className="flex overflow-hidden justify-center items-center p-3 border-gray-400 bg-[color:var(--sds-color-background-brand-default)] gap-[var(--sds-size-space-200)] pb-[var(--sds-size-space-300)] pl-[var(--sds-size-space-300)] pr-[var(--sds-size-space-300)] pt-[var(--sds-size-space-300)] rounded-[var(--sds-size-radius-200)]">
-          <Button asChild className="self-stretch bg-black text-white rounded-full hover:bg-gray-800">
-            <Link to="/representatives">Continue</Link>
-          </Button>
-          <img
-            loading="lazy"
-            src="https://cdn.builder.io/api/v1/image/assets/b48d2253945d4989949efbb42fb5c9e0/4606baba77ecde594d9c31e92e8d89281c163fda004f0c5ac9e5860fe6594733?apiKey=b48d2253945d4989949efbb42fb5c9e0&"
-            alt=""
-            className="object-contain shrink-0 self-stretch my-auto w-4 aspect-square"
-          />
-        </button>
+        <Button asChild>
+          <Link to="/representatives">Continue</Link>
+        </Button>
       </main>
       <Footer />
     </div>
