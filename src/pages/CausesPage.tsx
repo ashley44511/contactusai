@@ -82,13 +82,13 @@ export const CausesPage: React.FC = () => {
               <CauseItem
                 key={index}
                 label={cause}
-                isChecked={inputSelectedCauses.includes(cause)}
+                isChecked={selectedCauses.includes(cause)}
                 onToggle={() => toggleCause(cause)}
               />
             ))}
           </div>
           <div className="mt-4">
-            <strong>Selected Causes:</strong> {inputSelectedCauses.join(", ")}
+            <strong>Selected Causes:</strong> {selectedCauses.join(", ")}
           </div>
         </div>
       </div>
