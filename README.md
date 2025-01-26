@@ -26,6 +26,8 @@ cd backend-ai-api
 npm install
 node server.js
 ```
+## Domain
+contactusai.us; project is currently only able to be run locally and isn't hosted on the web yet...coming soon!??
 
 ## What technologies are used for this project?
 
