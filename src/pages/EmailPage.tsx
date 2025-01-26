@@ -42,10 +42,10 @@ export const EmailPage: React.FC = () => {
         body: JSON.stringify({ prompt }),
       });
       const data = await res.json();
-      setResponse(data.response || "Error generating email.");
+      setInputResponse(data.response || "Error generating email.");
     } catch (error) {
       console.error("Error generating email:", error);
-      setResponse("Failed to generate email.");
+      setInputResponse("Failed to generate email.");
     }
   };
 
@@ -94,12 +94,12 @@ export const EmailPage: React.FC = () => {
             </button>
           </div>
           <div className="w-full">
-            <label htmlFor="response">Response</label>
+            <label htmlFor="inputResponse">Response</label>
             <textarea
-              id="response"
+              id="inputResponse"
               className="w-full p-4 mt-2 border rounded-lg"
               readOnly
-              value={response}
+              value={inputResponse}
             />
           </div>
         </form>
