@@ -4,6 +4,8 @@ export interface NavItemProps {
 
 export interface CauseItemProps {
   label: string;
+  isChecked: boolean;
+  onToggle: () => void;
 }
 
 export interface SocialIconProps {
