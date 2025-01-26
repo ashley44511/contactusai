@@ -1,24 +1,10 @@
-# Welcome to your Lovable project
+# Welcome to the ContactUSAI project
 
 ## Project info
+created for Swamphacks 2025 by Tyler Audino and Ashley Maurer
 
-**URL**: https://lovable.dev/projects/19f7386d-d3af-40e1-ab41-6dee1e56d727
-
-## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/19f7386d-d3af-40e1-ab41-6dee1e56d727) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## How to run
+Have Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
 Follow these steps:
 
@@ -36,21 +22,9 @@ npm i
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
 ## What technologies are used for this project?
+
+**URL**: https://lovable.dev/projects/19f7386d-d3af-40e1-ab41-6dee1e56d727
 
 This project is built with .
 
@@ -60,10 +34,13 @@ This project is built with .
 - shadcn-ui
 - Tailwind CSS
 
-## How can I deploy this project?
+Sources:
+https://www.govtrack.us/congress/members/map
+Photo by Photo By: Kaboompics.com: https://www.pexels.com/photo/image-of-old-building-on-american-banknote-4386157/
+"http://www.freepik.com" Designed by Dooder / Freepik
+ContactUSAI Logo by Ashley Maurer; inspired by dooder on Freepik
+https://www.figma.com/design/pVd5XTzS1NL4JlodzrbQPf/SwampHacksX?node-id=0-1&t=IljMaQWTve9XhOla-1
+https://chatgpt.com/
+https://lovable.dev/
+https://www.builder.io/
 
-Simply open [Lovable](https://lovable.dev/projects/19f7386d-d3af-40e1-ab41-6dee1e56d727) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
