@@ -5,9 +5,7 @@ const Features = () => {
     <section className="flex w-full gap-2.5 justify-center flex-wrap max-md:max-w-full">
       <div className="bg-white min-w-60 w-full flex-1 shrink basis-[0%] p-16 max-md:max-w-full max-md:px-5">
         <div className="w-full max-md:max-w-full">
-          <h2 className="text-[color:var(--sds-color-text-default-default)] text-[length:var(--sds-typography-heading-size-base)] font-[number:var(--sds-typography-heading-font-weight)] leading-[1.2] tracking-[-0.48px] max-md:max-w-full">
-            Contact your representatives now to make your voice heard!
-          </h2>
+        <h1 className="text-4xl">Contact your US Congress Representative now to make sure your voice is heard!</h1>
           <p className="text-[color:var(--sds-color-text-default-secondary)] text-[length:var(--sds-typography-subheading-size-medium)] font-[number:var(--sds-typography-subheading-font-weight)] leading-6 mt-2 max-md:max-w-full">
             ContactUS.ai makes contacting your representatives as easy as possible. Harness the power of AI to generate impactful emails and send them directly to your Representative.
           </p>

@@ -52,7 +52,7 @@ const RepresentativesPage = () => {
       />
     <div className="flex flex-row items-center">
       <div className="flex flex-col items-center self-center w-1/2 bg-white max-md:px-5 max-md:max-w-full">
-        <h1 className="text-2xl mb-4">Find Your Member of Congress</h1>
+        <h1 className="text-2xl mb-4">3. Find Your Congress Representative</h1>
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             <label htmlFor="address" className="text-lg flex flex-col items-center">
               Enter your address:

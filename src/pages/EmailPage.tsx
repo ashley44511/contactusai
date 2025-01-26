@@ -48,8 +48,8 @@ export const EmailPage: React.FC = () => {
       />
 
       <main className="flex flex-col justify-center items-center self-center p-16 w-full">
-        <h1 className="text-4xl">Generate your personalized email with AI</h1>
-        <form onSubmit={handleGenerate} className="flex flex-wrap gap-10">
+        <h1 className="text-4xl">2. Generate your personalized email with AI</h1>
+        <form onSubmit={handleGenerate} className="flex flex-wrap gap-10 justify-center items-center">
           <div className="flex flex-col p-6 w-80">
             <InputField
               label="First Name"

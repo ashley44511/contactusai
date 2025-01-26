@@ -82,9 +82,7 @@ export const CausesPage: React.FC = () => {
       />
 
       <div className="flex overflow-hidden flex-wrap gap-4 justify-center items-center py-16 pr-16 w-full bg-white text-[color:var(--sds-color-text-default-default)] max-md:pr-5 max-md:max-w-full p-10">
-        <div className="grow shrink self-stretch my-auto tracking-tighter leading-tight text-center font-[number:var(--sds-typography-title-page-font-weight)] text-[length:var(--sds-typography-title-page-size-base)] w-[999px] max-md:max-w-full max-md:text-4xl">
-          Select causes to support:
-        </div>
+      <h1 className="text-4xl">1. Select Causes To Support</h1>
 
         <div className="flex flex-col grow shrink self-stretch my-auto leading-6 rounded-md font-[number:var(--sds-typography-body-font-weight-regular)] min-w-[240px] text-[length:var(--sds-typography-body-size-medium)] w-[804px] max-md:max-w-full">
           <div className="grid grid-cols-4 gap-4">
