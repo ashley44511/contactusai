@@ -1,10 +1,12 @@
 import * as React from "react";
 import Header from '@/components/layout/Header';
+import Footer from "@/components/layout/Footer";
 import { NavItem } from "../components/emailGenerator/NavItem";
 import { InputField } from "../components/emailGenerator/InputField";
 import { FooterSection } from "../components/emailGenerator/FooterSection";
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+
 
 const navItems = ["Causes", "Generate Email", "Representatives", "Contact"];
 const footerSections = [
@@ -91,37 +93,7 @@ export const EmailPage: React.FC = () => {
                  />
       </button>
       </main>
-
-      
-
-      <footer className="flex flex-col w-full max-md:max-w-full">
-        <div className="flex items-start w-full min-h-[212px] max-md:max-w-full">
-          <div className="flex flex-col flex-1 shrink w-full basis-0 min-w-[240px] max-md:max-w-full">
-            <div className="flex overflow-hidden flex-wrap flex-1 gap-16 content-start items-start px-8 pt-8 pb-40 border-solid bg-[linear-gradient(0deg,rgba(0,0,0,0.20_0%,rgba(0,0,0,0.20)_100%),#AAC8B9)] border-t-[color:var(--sds-color-border-default-default)] border-t-[length:var(--sds-size-stroke-border)] pb-[var(--sds-size-space-4000)] pl-[var(--sds-size-space-800)] pr-[var(--sds-size-space-800)] pt-[var(--sds-size-space-800)] size-full max-md:px-5 max-md:pb-24 max-md:max-w-full">
-              <div className="flex flex-col items-start min-w-[240px] w-[262px]">
-                <div className="flex gap-4 items-center">
-                  {[5, 6, 7, 8].map((num) => (
-                    <img
-                      key={num}
-                      loading="lazy"
-                      src={`http://b.io/ext_${num}-`}
-                      alt={`Social Icon ${num}`}
-                      className="object-contain shrink-0 self-stretch my-auto w-6 aspect-square"
-                    />
-                  ))}
-                </div>
-              </div>
-              {footerSections.map((section, index) => (
-                <FooterSection
-                  key={index}
-                  title={section.title}
-                  links={section.links}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer/>
     </div>
   );
 };
