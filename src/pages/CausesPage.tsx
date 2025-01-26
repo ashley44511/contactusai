@@ -6,8 +6,8 @@ import { CauseItem } from "../components/causes/CauseItem";
 import { FooterSection } from "../components/causes/FooterSection";
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import {useDataStorageContext} from '@/context/DataStorageContext';
 
-const navItems = ["Causes", "Generate Email", "Representatives", "Contact"];
 
 const causes = [
   "Agriculture and Food",
@@ -44,23 +44,10 @@ const causes = [
   "Water Resources Development",
 ];
 
-const footerSections = [
-  {
-    title: "Steps",
-    links: ["Causes", "Email", "Representatives"],
-  },
-  {
-    title: "Contact",
-    links: ["GitHub", "Email"],
-  },
-  {
-    title: "Pages",
-    links: ["Home", "Causes", "Email", "Representatives"],
-  },
-];
 
 export const CausesPage: React.FC = () => {
-  const [selectedCauses, setSelectedCauses] = useState<string[]>([]);
+  const {selectedCauses, setSelectedCauses} = useDataStorageContext();
+  const [inputSelectedCauses, setInputSelectedCauses] = useState<string[]>([]);
 
   const toggleCause = (cause: string) => {
     setSelectedCauses((prevSelected) =>
@@ -69,6 +56,11 @@ export const CausesPage: React.FC = () => {
         : [...prevSelected, cause] // Add if not selected
     );
   };
+
+  const handleSaveCauses = () => {
+    setInputSelectedCauses(selectedCauses);
+    console.log("Selected Causes: " + selectedCauses);
+  }
 
   return (
     <div className="flex overflow-hidden flex-col bg-white">
@@ -90,19 +82,19 @@ export const CausesPage: React.FC = () => {
               <CauseItem
                 key={index}
                 label={cause}
-                isChecked={selectedCauses.includes(cause)}
+                isChecked={inputSelectedCauses.includes(cause)}
                 onToggle={() => toggleCause(cause)}
               />
             ))}
           </div>
           <div className="mt-4">
-            <strong>Selected Causes:</strong> {selectedCauses.join(", ")}
+            <strong>Selected Causes:</strong> {inputSelectedCauses.join(", ")}
           </div>
         </div>
       </div>
 
       <div className="flex flex-col justify-center items-center py-10 w-full tracking-tight leading-tight text-center whitespace-nowrap font-[number:var(--sds-typography-heading-font-weight)] min-w-[420px] pl-[525px] pr-[524px] text-[color:var(--sds-color-text-brand-on-brand)] text-[length:var(--sds-typography-heading-size-base)] max-md:px-5 max-md:max-w-full">
-        <button className="flex overflow-hidden justify-center items-center p-3 border-gray-400 bg-[color:var(--sds-color-background-brand-default)] gap-[var(--sds-size-space-200)] pb-[var(--sds-size-space-300)] pl-[var(--sds-size-space-300)] pr-[var(--sds-size-space-300)] pt-[var(--sds-size-space-300)] rounded-[var(--sds-size-radius-200)]">
+        <button onClick={handleSaveCauses} className="flex overflow-hidden justify-center items-center p-3 border-gray-400 bg-[color:var(--sds-color-background-brand-default)] gap-[var(--sds-size-space-200)] pb-[var(--sds-size-space-300)] pl-[var(--sds-size-space-300)] pr-[var(--sds-size-space-300)] pt-[var(--sds-size-space-300)] rounded-[var(--sds-size-radius-200)]">
         <Button asChild className="self-stretch bg-black text-white rounded-full hover:bg-gray-800">
             <Link to='/email'>Continue</Link>
         </Button>

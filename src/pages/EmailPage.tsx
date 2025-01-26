@@ -4,18 +4,28 @@ import Footer from "@/components/layout/Footer";
 import { InputField } from "../components/emailGenerator/InputField";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import {useDataStorageContext} from '@/context/DataStorageContext';
 
 export const EmailPage: React.FC = () => {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [response, setResponse] = useState("Dear Representative,");
+  const {firstName, setFirstName, lastName, setLastName, email, setEmail, response, setResponse} = useDataStorageContext();
+  const [inputFirstName, setInputFirstName] = useState("");
+  const [inputLastName, setInputLastName] = useState("");
+  const [inputEmail, setInputEmail] = useState("");
+  const [inputResponse, setInputResponse] = useState("Dear Representative,");
 
   const handleInputChange =
     (setter: React.Dispatch<React.SetStateAction<string>>) =>
     (e: React.ChangeEvent<HTMLInputElement>) => {
       setter(e.target.value);
     };
+
+  const handleSaveDataEmail = () => {
+    setFirstName(inputFirstName);
+    setLastName(inputLastName);
+    setEmail(inputEmail);
+    setResponse(inputResponse);
+    console.log("First Name: " + firstName + " Last Name: " + lastName + " Email: " + email + " Response: " + response);
+  }
 
   const handleGenerate = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -91,7 +101,7 @@ export const EmailPage: React.FC = () => {
             />
           </div>
         </form>
-        <Button asChild>
+        <Button onClick={handleSaveDataEmail} asChild>
           <Link to="/representatives">Continue</Link>
         </Button>
       </main>
