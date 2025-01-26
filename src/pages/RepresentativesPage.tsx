@@ -13,7 +13,7 @@ import {useDataStorageContext} from '@/context/DataStorageContext';
 const RepresentativesPage = () => {
   const {address, setAddress, repName, setRepName, repWebsite, setRepWebsite} = useDataStorageContext();
   const [inputAddress, setInputAddress] = useState("");
-  const [representative, setRepresentatives] = useState(null);
+  const [representative, setRepresentatives] = useState([]);
   const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
@@ -72,7 +72,7 @@ const RepresentativesPage = () => {
               type="text"
               placeholder="123 Main St, City, State, ZIP"
               value={address}
-              onChange={(e) => setAddress(e.target.value)}
+              onChange={(e) => setInputAddress(e.target.value)}
               className="border border-gray-300 rounded-md p-2"
             />
             {error && <p className="text-red-500">{error}</p>}
