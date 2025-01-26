@@ -71,7 +71,7 @@ const RepresentativesPage = () => {
               id="address"
               type="text"
               placeholder="123 Main St, City, State, ZIP"
-              value={address}
+              value={inputAddress}
               onChange={(e) => setInputAddress(e.target.value)}
               className="border border-gray-300 rounded-md p-2"
             />

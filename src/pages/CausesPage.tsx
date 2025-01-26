@@ -47,7 +47,6 @@ const causes = [
 
 export const CausesPage: React.FC = () => {
   const {selectedCauses, setSelectedCauses} = useDataStorageContext();
-  const [inputSelectedCauses, setInputSelectedCauses] = useState<string[]>([]);
 
   const toggleCause = (cause: string) => {
     setSelectedCauses((prevSelected) =>
@@ -58,7 +57,6 @@ export const CausesPage: React.FC = () => {
   };
 
   const handleSaveCauses = () => {
-    setSelectedCauses(selectedCauses);
     console.log("Selected Causes: " + selectedCauses);
   }
 
