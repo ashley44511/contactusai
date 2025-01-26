@@ -58,7 +58,7 @@ export const CausesPage: React.FC = () => {
   };
 
   const handleSaveCauses = () => {
-    setInputSelectedCauses(selectedCauses);
+    setSelectedCauses(selectedCauses);
     console.log("Selected Causes: " + selectedCauses);
   }
 

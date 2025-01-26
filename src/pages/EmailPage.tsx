@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import {useDataStorageContext} from '@/context/DataStorageContext';
 
 export const EmailPage: React.FC = () => {
-  const {firstName, setFirstName, lastName, setLastName, email, setEmail, response, setResponse} = useDataStorageContext();
+  const {firstName, setFirstName, lastName, setLastName, email, setEmail, response, setResponse, selectedCauses, setSelectedCauses} = useDataStorageContext();
   const [inputFirstName, setInputFirstName] = useState("");
   const [inputLastName, setInputLastName] = useState("");
   const [inputEmail, setInputEmail] = useState("");
@@ -29,7 +29,9 @@ export const EmailPage: React.FC = () => {
 
   const handleGenerate = async (e: React.FormEvent) => {
     e.preventDefault();
-    const prompt = `Generate an email to a representative introducing myself. My first name is ${firstName}, my last name is ${lastName}, and my email address is ${email}.`;
+    const stringArray = selectedCauses.map(c => c.toString());
+    const listString = stringArray.join(",");
+    const prompt = `Generate an email to a US Congress representative introducing myself and bringing awareness to issues I care about. My first name is ${firstName}, my last name is ${lastName}, and my email address is ${email}. Please write a paragraph for each of these issues: ${listString}. Don't include brackets. Please begin the email with "Dear Representative," and end with "Sincerely," my name and email. Do not include a place for my address and do not include [] with fields.`;
 
     try {
       const res = await fetch("http://localhost:3000/api/generate-email", {
