@@ -54,16 +54,7 @@ export function EmailBuilder() {
           </div>
         </div>
       </div>
-      <div className="flex overflow-hidden gap-10 justify-center items-start px-2.5 py-5 w-full leading-snug whitespace-nowrap bg-white font-[number:var(--sds-typography-body-font-weight-regular)] text-[color:var(--sds-color-text-default-default)] text-[length:var(--sds-typography-body-size-medium)] max-md:max-w-full">
-        <div className="flex flex-col min-h-[504px] min-w-[240px] w-[655px]">
-          <label htmlFor="responseInput" className="max-md:max-w-full">
-            Representative Contact Information
-          </label>
-          <div className="flex overflow-hidden relative flex-1 gap-1 items-start px-4 py-3 mt-2 bg-white rounded-lg border border-solid border-zinc-300 min-h-[80px] min-w-[240px] size-full max-md:max-w-full">
-            {/**include contact info variables */}
-          </div>
-        </div>
-      </div>
+      
       <div className="flex flex-col justify-center items-center py-10 w-full tracking-tight leading-tight text-center font-[number:var(--sds-typography-heading-font-weight)] px-[514px] text-[color:var(--sds-color-text-brand-on-brand)] text-[length:var(--sds-typography-heading-size-base)] max-md:px-5 max-md:max-w-full">
       <button className="flex overflow-hidden justify-center items-center p-3 border-gray-400 bg-[color:var(--sds-color-background-brand-default)] gap-[var(--sds-size-space-200)] pb-[var(--sds-size-space-300)] pl-[var(--sds-size-space-300)] pr-[var(--sds-size-space-300)] pt-[var(--sds-size-space-300)] rounded-[var(--sds-size-radius-200)]"
         onClick={() => {
