@@ -20,6 +20,11 @@ npm i
 
 # Step 4: Start the development server with auto-reloading and an instant preview.
 npm run dev
+
+# Step 5: Backend for AI API functionality
+cd backend-ai-api
+npm install
+node server.js
 ```
 
 ## What technologies are used for this project?

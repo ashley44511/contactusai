@@ -7,7 +7,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import Index from "./pages/Index";
 import { CausesPage } from "./pages/CausesPage";
 import { EmailPage } from "./pages/EmailPage";
-import { RepresentativesPage } from "./pages/RepresentativesPage";
+import RepresentativesPage  from "./pages/RepresentativesPage";
 import { EmailBuilder } from "./pages/EmailBuilder";
 
 const queryClient = new QueryClient();

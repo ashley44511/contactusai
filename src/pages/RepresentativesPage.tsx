@@ -7,43 +7,39 @@ import { FooterLinkSection } from "../components/representatives/FooterLinkSecti
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import Iframe from "react-iframe";
+import { useState } from "react";
 
-const navItems = ["Causes", "Generate Email", "Representatives", "Contact"];
-const socialIcons = [
-  {
-    src: "https://cdn.builder.io/api/v1/image/assets/b48d2253945d4989949efbb42fb5c9e0/b107b4d77b35e3707793121b0a0c0febd845f880f665d5dc3d5a2402e8338ef5?apiKey=b48d2253945d4989949efbb42fb5c9e0&",
-    alt: "Social Media Icon 1",
-  },
-  {
-    src: "https://cdn.builder.io/api/v1/image/assets/b48d2253945d4989949efbb42fb5c9e0/44bacd0e433568efb289653de4eb54ceb58a9e18ac8df12c17d6edcf7876daef?apiKey=b48d2253945d4989949efbb42fb5c9e0&",
-    alt: "Social Media Icon 2",
-  },
-  {
-    src: "https://cdn.builder.io/api/v1/image/assets/b48d2253945d4989949efbb42fb5c9e0/bb3144348c5ddf7a616d7285c88e66d8f95bc44e7745b632b2188a641b6b84e1?apiKey=b48d2253945d4989949efbb42fb5c9e0&",
-    alt: "Social Media Icon 3",
-  },
-  {
-    src: "https://cdn.builder.io/api/v1/image/assets/b48d2253945d4989949efbb42fb5c9e0/77b0ce98c615230b347050570ba2a431e9342258433f64a04e426c4f05dd1068?apiKey=b48d2253945d4989949efbb42fb5c9e0&",
-    alt: "Social Media Icon 4",
-  },
-];
+const RepresentativesPage = () => {
+  const [address, setAddress] = useState("");
+  const [representatives, setRepresentatives] = useState([]);
+  const [error, setError] = useState("");
 
-const footerSections = [
-  {
-    title: "Steps",
-    links: ["Causes", "Email", "Representatives"],
-  },
-  {
-    title: "Contact",
-    links: ["GitHub", "Email"],
-  },
-  {
-    title: "Pages",
-    links: ["Home", "Causes", "Email", "Representatives"],
-  },
-];
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!address.trim()) {
+      setError("Please enter a valid address.");
+      return;
+    }
+    setError("");
+    await fetchRepresentatives(address);
+  };
 
-export const RepresentativesPage: React.FC = () => {
+  const fetchRepresentatives = async (address) => {
+    try {
+      const API_KEY = "AIzaSyBYPOo3zZUmGGb9c0zJocmoDinx_4gBhV4"; // Replace with your actual API key
+      const url = `https://www.googleapis.com/civicinfo/v2/representatives?address=${encodeURIComponent(address)}&levels=country&roles=legislatorLowerBody&key=${API_KEY}`;
+
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error("Failed to fetch representatives.");
+      }
+      const data = await response.json();
+      setRepresentatives(data.officials || []);
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
   return (
     <div className="flex overflow-hidden flex-col bg-white">
       <Header />
@@ -54,50 +50,65 @@ export const RepresentativesPage: React.FC = () => {
         alt="Banner"
         className="object-contain self-center max-w-full aspect-[10.2] w-[1058px]"
       />
-
-      <div className="flex flex-col items-center self-center p-16 w-full bg-white max-md:px-5 max-md:max-w-full">
-        <div className="flex flex-col max-w-full leading-tight text-center w-[651px]">
-          <h1 className="tracking-tighter font-[number:var(--sds-typography-title-page-font-weight)] text-[color:var(--sds-color-text-default-default)] text-[length:var(--sds-typography-title-page-size-base)] max-md:max-w-full max-md:text-4xl">
-            Find your representatives
-          </h1>
-          <label
-            htmlFor="zipcode"
-            className="mt-2 font-[number:var(--sds-typography-subheading-font-weight)] text-[color:var(--sds-color-text-default-secondary)] text-[length:var(--sds-typography-subheading-size-medium)] max-md:max-w-full"
-          >
-            Enter your zip code:
-          </label>
-        </div>
-        <form className="flex gap-3 items-start mt-6 max-w-full w-[338px]">
-          <div className="flex flex-col leading-none whitespace-nowrap font-[number:var(--sds-typography-body-font-weight-regular)] min-w-[240px] text-[color:var(--sds-color-text-default-default)] text-[length:var(--sds-typography-body-size-medium)] w-[249px]">
+    <div className="flex flex-row items-center">
+      <div className="flex flex-col items-center self-center w-1/2 bg-white max-md:px-5 max-md:max-w-full">
+        <h1 className="text-2xl mb-4">Find Your Member of Congress</h1>
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+            <label htmlFor="address" className="text-lg flex flex-col items-center">
+              Enter your address:
+            </label>
             <input
+              id="address"
               type="text"
-              id="zipcode"
-              placeholder="Zipcode"
-              className="overflow-hidden flex-1 shrink self-stretch px-4 py-3 max-w-full bg-white rounded-lg border border-solid border-zinc-300 min-w-[240px] w-[249px]"
-              aria-label="Enter zipcode"
+              placeholder="123 Main St, City, State, ZIP"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+              className="border border-gray-300 rounded-md p-2"
             />
-          </div>
-          <button
-            type="submit"
-            className="flex overflow-hidden gap-2 justify-center items-center px-3 w-11 h-11 border border-solid bg-zinc-800 border-zinc-800 rounded-[32px]"
-          >
-            <img
-              loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets/b48d2253945d4989949efbb42fb5c9e0/4bb2f8b7c4080382c751fb738394d74a8e5fbfcfc5df1227843d4e4303498a49?apiKey=b48d2253945d4989949efbb42fb5c9e0&"
-              alt="Search"
-              className="object-contain self-stretch my-auto w-5 aspect-square"
-            />
-          </button>
-        </form>
-      </div>
+            {error && <p className="text-red-500">{error}</p>}
+            <button
+              type="submit"
+              className="mt-6 overflow-hidden flex-1 shrink gap-2 self-stretch p-3 w-full rounded-lg border border-solid  bg-black text-white rounded-full hover:bg-gray-800 border-zinc-800 min-w-[240px] text-[color:var(--sds-color-text-brand-on-brand)]"
+            >
+              Find My Representative
+            </button>
+          </form>
 
-      <div className="flex overflow-hidden flex-col justify-center p-16 w-full min-h-[723px] max-md:px-5 max-md:max-w-full">
+        <div className="mt-6">
+          {representatives.length > 0 ? (
+            <div>
+              <h2 className="text-xl font-bold mb-4">Your Representative:</h2>
+              <ul className="list-disc pl-6">
+                {representatives.map((rep, index) => (
+                  <li key={index} className="mb-2">
+                    <strong>{rep.name}</strong> - {rep.party || "Unknown Party"}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : (
+            <p>No representative found yet.</p>
+          )}
+        </div>
+        <button className="border-gray-400 bg-[color:var(--sds-color-background-brand-default)] gap-[var(--sds-size-space-200)] pb-[var(--sds-size-space-300)] pl-[var(--sds-size-space-300)] pr-[var(--sds-size-space-300)] pt-[var(--sds-size-space-300)] rounded-[var(--sds-size-radius-200)]">
+        <Button asChild className="text-white mt-6 overflow-hidden flex-1 shrink gap-2 self-stretch p-3 w-full rounded-lg border border-solid  bg-black  rounded-full hover:bg-gray-800 border-zinc-800 min-w-[240px] ">
+            <Link to='/submit'>Continue</Link>
+        </Button>
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/b48d2253945d4989949efbb42fb5c9e0/4606baba77ecde594d9c31e92e8d89281c163fda004f0c5ac9e5860fe6594733?apiKey=b48d2253945d4989949efbb42fb5c9e0&"
+            alt=""
+            className="object-contain shrink-0 self-stretch my-auto w-4 aspect-square"
+          />
+      </button>
+      </div>
+      <div className="flex overflow-hidden flex-col justify-center p-16 w-1/2 min-h-[723px] max-md:px-5 max-md:max-w-full">
         <div className="flex justify-center items-center p-4">
           {/* Sources for Iframe:
         https://www.npmjs.com/package/react-iframe
         // https://www.govtrack.us/congress/members/map */}
           <Iframe
-            url="https://www.govtrack.us/congress/members/embed/mapframe?&bounds=-123.54,43.603,-77.816,28.009"
+            url="https://www.govtrack.us/congress/members/embed/mapframe?&bounds=-140.001,45.978,-57.241,20.932"
             width="100%"
             height="575r"
             id=""
@@ -107,22 +118,15 @@ export const RepresentativesPage: React.FC = () => {
           />
         </div>
       </div>
-
-      <div className="flex flex-col justify-center items-center px-16 py-10 w-full tracking-tight leading-tight text-center whitespace-nowrap font-[number:var(--sds-typography-heading-font-weight)] text-[color:var(--sds-color-text-brand-on-brand)] text-[length:var(--sds-typography-heading-size-base)] max-md:px-5 max-md:max-w-full">
-      <button className="flex overflow-hidden justify-center items-center p-3 border-gray-400 bg-[color:var(--sds-color-background-brand-default)] gap-[var(--sds-size-space-200)] pb-[var(--sds-size-space-300)] pl-[var(--sds-size-space-300)] pr-[var(--sds-size-space-300)] pt-[var(--sds-size-space-300)] rounded-[var(--sds-size-radius-200)]">
-        <Button asChild className="self-stretch bg-black text-white rounded-full hover:bg-gray-800">
-            <Link to='/submit'>Continue</Link>
-        </Button>
-          <img
-            loading="lazy"
-            src="https://cdn.builder.io/api/v1/image/assets/b48d2253945d4989949efbb42fb5c9e0/4606baba77ecde594d9c31e92e8d89281c163fda004f0c5ac9e5860fe6594733?apiKey=b48d2253945d4989949efbb42fb5c9e0&"
-            alt=""
-            className="object-contain shrink-0 self-stretch my-auto w-4 aspect-square"
-          />
-        </button>
-      </div>
-
-      <Footer/>
+      
     </div>
+  
+  
+      
+   
+    <Footer/>
+  </div>
   );
 };
+
+export default RepresentativesPage;
