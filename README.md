@@ -2,6 +2,8 @@
 
 ## Project info
 created for Swamphacks 2025 by Tyler Audino and Ashley Maurer
+Video Demo: coming soon
+Devpost Page: https://devpost.com/software/contactus-ai?ref_content=my-projects-tab&ref_feature=my_projects
 
 ## How to run
 Have Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
@@ -24,7 +26,13 @@ npm run dev
 # Step 5: Backend for AI API functionality
 cd backend-ai-api
 npm install
-node server.js
+node server.js OR npm run start
+
+# Step 6: Obtain 2 API Keys for full functionality
+Create .env file in contactusai directory and put VITE_GEOCODIO_API_KEY="YOUR_API_KEY" in it
+You can obtain a VITE_GEOCODIO_API_KEY from https://www.geocod.io/
+Create .env file in contactusai/backend-ai-api and put GEMINI_API_KEY="YOUR_API_KEY"
+You can obtain a GEMINI_API_KEY from https://aistudio.google.com/welcome
 ```
 ## Domain
 contactusai.us; project is currently only able to be run locally and isn't hosted on the web yet...coming soon!??
@@ -54,4 +62,5 @@ Sources:
 - https://tailwindcss.com/
 - https://www.geeksforgeeks.org/how-to-align-form-elements-to-center-using-tailwind-css/
 - https://developers.google.com/civic-information
+- https://www.geocod.io/
 
