@@ -1,8 +1,10 @@
-require("dotenv").config();
-const express = require("express");
-const bodyParser = require("body-parser");
-const cors = require("cors");
-const { GoogleGenerativeAI } = require("@google/generative-ai");
+import dotenv from "dotenv";
+dotenv.config();
+
+import express from "express";
+import bodyParser from "body-parser";
+import cors from "cors";
+import { GoogleGenAI } from "@google/genai";
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -11,13 +13,11 @@ const port = process.env.PORT || 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
-// Initialize Gemini API client
-const genAI = new GoogleGenerativeAI("AIzaSyDrHprWaXrjrUxw0jfJ6OiqpQrXtfPq8Xo"); //replace with .env file normally
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+// Initialize GoogleGenAI client
+const genAI = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
 // API Endpoint
 app.post("/api/generate-email", async (req, res) => {
-    
   console.log("Request received at /api/generate-email:", req.body);
 
   const { prompt } = req.body;
@@ -27,9 +27,13 @@ app.post("/api/generate-email", async (req, res) => {
   }
 
   try {
-    const result = await model.generateContent(prompt);
-    console.log(result.response.text());
-    res.json({ response: result.response.text() });
+    // Generate content using the new SDK method
+    const result = await genAI.models.generateContent({
+      model: "gemini-2.5-flash",
+      contents: [prompt],
+    });
+    console.log(result.candidates[0].content.parts[0].text);
+    res.json({ response: result.candidates[0].content.parts[0].text });
   } catch (error) {
     console.error("Error generating content:", error);
     res.status(500).json({ error: "Failed to generate email." });

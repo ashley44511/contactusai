@@ -36,7 +36,7 @@ const RepresentativesPage = () => {
 
   const fetchRepresentatives = async (address) => {
     try {
-      const API_KEY = "AIzaSyBYPOo3zZUmGGb9c0zJocmoDinx_4gBhV4"; // Replace with your actual API key
+      const API_KEY = import.meta.env.VITE_CIVIC_API_KEY; // Replace with your actual API key
       const url = `https://www.googleapis.com/civicinfo/v2/representatives?address=${encodeURIComponent(address)}&levels=country&roles=legislatorLowerBody&key=${API_KEY}`;
 
       const response = await fetch(url);
